@@ -1,18 +1,22 @@
-const BlogsDB = require('../models/skills')
+const SkillsDB = require('../models/skill')
 
 module.exports = {
     index,
-    show
+    show,
+    new: newEntry,
 }
 
-function index(req,res){
-    const blogs = BlogsDB.getAll()
-    res.render('skills/index', {blogs})
+function index(req, res){
+    const data = SkillsDB.getAll()
+    res.render('skills/index', {data})
 }
 
-function show(req,res){
+function show(req, res){
     const id = parseInt(req.params.id)
-    const getData = BlogsDB.getAll().find((x) => x.id === id)
-    res.render('skills/show', {getData})
+    const data = SkillsDB.getAll().find((x) => x.id === id)
+    res.render('skills/show', {data})
 }
 
+function newEntry(req, res){
+    res.render('skills/new')
+}

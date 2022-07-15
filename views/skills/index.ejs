@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Blogs</title>
-    <link rel='stylesheet' href='/stylesheets/mainpage.css' />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300&family=Koulen&family=Lato:wght@100&family=Libre+Baskerville:ital@1&family=Open+Sans:wght@300&family=Orbitron&family=Press+Start+2P&family=Roboto+Mono:wght@300&family=Roboto:ital,wght@0,300;0,700;1,400&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <main>
-      <h1>Blog Posts</h1>
-      <%blogs.forEach((x) => {%>
-          <div class="blog">
-              <h3><a href="skills/<%=x.id%>"><%=x.username%></a></h3>
-              <p><%=x.text%></p>
-          </div>
-      <%})%>
-    </main>
-    <div>
-
-    </div>
-  </body>
-</html>
+<%- include('../partials/navbar')%>
+    <section id="main">
+        <div class="container-lg">
+            <div class="row justify-content-start ps-3 pe-3">
+                <% data.forEach((d) => { %>
+                <div class="card mt-2">
+                    <a class="text-decoration-none" href="/skills/<%=d.id%>" ><span class="display-5 text-secondary"><%=d.skill%></span></a>
+                    <h6>Insights:</h6>
+                    <p><%= d.private ? 'Private' : d.bio %></p>
+                </div>
+                <% }) %>
+                <a  type="button" class="btn btn-outline-primary mt-2" href="/skills/new">Add Another Skill</a>
+            </div>
+        </div>
+    </section>
+<%- include('../partials/footer')%>
