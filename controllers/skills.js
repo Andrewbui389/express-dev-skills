@@ -4,6 +4,7 @@ module.exports = {
     index,
     show,
     new: newEntry,
+    create
 }
 
 function index(req, res){
@@ -19,4 +20,10 @@ function show(req, res){
 
 function newEntry(req, res){
     res.render('skills/new')
+}
+
+function create(req, res){
+    req.body['id'] = Math.floor(Date.now() / 100000000)
+    const data = SkillsDB.getAll()
+    res.render('skills/index', {data} )
 }

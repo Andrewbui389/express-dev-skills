@@ -1,12 +1,20 @@
 <%- include('../partials/navbar')%>
 <div class="container">
     <div class="row justify-content-center">
-        <form class="col-5">
+        <form action="/skills" method="POST" class="col-5">
             <label>Skill</label>
-            <input type="text" class="form-control" placeholder="Critical Thinking">
-            <label>Insight</label>
-            <input type="text" class="form-control" placeholder="I analyze with a rapid speed">
-            <input type="submit" class="form-control btn btn-outline-success">
+            <input type="text" class="form-control" placeholder="Critical Thinking" name="skill">
+            <label class="mt-3">Insight</label>
+            <input type="text" class="form-control" placeholder="I analyze with a rapid speed" name="bio">
+            <div class="form-group mt-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="private">
+                  <label class="form-check-label" for="private">
+                    Private
+                  </label>
+                </div>
+            </div>
+            <input type="submit" class="form-control btn btn-outline-success mt-3">
         </form>
     </div>
 </div>
