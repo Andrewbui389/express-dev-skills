@@ -20,6 +20,7 @@ router.get('/:id', skillsCtr.show)
 // DELETE /:id Functionality to delete a skill
 router.delete('/:id', skillsCtr.delete)
 
-
+// PUT /edit/:id Functionality to edit a skill
+router.get('/edit/:id', skillsCtr.update)
 
 module.exports = router

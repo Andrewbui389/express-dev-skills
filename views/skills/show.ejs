@@ -2,7 +2,12 @@
     <div class="container mt-5">
          <div class="row justify-content-center">
             <div class="card col-5 p-2 text-left">
-                <h3><%=data.skill%></h3>
+                <div class="d-flex justify-content-between">
+                    <h3><%=data.skill%></h3>
+                    <form action="/skills/edit/<%=data.id%>" method="GET">  
+                        <button class="btn btn-outline-info" type="submit">Edit</button>
+                    </form>
+                </div>
                 <h6>Insights:</h6>
                 <p><%=data.bio%></p>
             </div>
