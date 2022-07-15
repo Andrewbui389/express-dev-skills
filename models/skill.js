@@ -9,9 +9,16 @@ const users = [
 
 
 module.exports = {
-    getAll
+    getAll,
+    create
 }
 
 function getAll(){
     return users
+}
+
+function create(req){
+    req['id'] = Math.floor(Date.now() / 100000000)
+    req.private = !!req.private
+    users.push(req)
 }

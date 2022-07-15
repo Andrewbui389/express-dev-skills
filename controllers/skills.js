@@ -23,7 +23,7 @@ function newEntry(req, res){
 }
 
 function create(req, res){
-    req.body['id'] = Math.floor(Date.now() / 100000000)
-    const data = SkillsDB.getAll()
-    res.render('skills/index', {data} )
+    SkillsDB.create(req.body)
+    let data = SkillsDB.getAll()
+    res.render('skills/index', {data})
 }
