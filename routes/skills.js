@@ -17,6 +17,9 @@ router.post('/', skillsCtr.create)
 // GET /:id Functionality to get specific id and show 
 router.get('/:id', skillsCtr.show)
 
+// DELETE /:id Functionality to delete a skill
+router.delete('/:id', skillsCtr.delete)
+
 
 
 module.exports = router

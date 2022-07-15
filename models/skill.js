@@ -1,4 +1,4 @@
-const users = [
+const posts = [
     {id:43243, skill:'Funny' ,bio:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate5',private:false},
     {id:43222, skill:'Humble' ,bio:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate4',private:true},
     {id:42332, skill:'Nice' ,bio:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate3',private:false},
@@ -10,15 +10,22 @@ const users = [
 
 module.exports = {
     getAll,
-    create
+    create,
+    delete:deleteSkill
 }
 
 function getAll(){
-    return users
+    return posts
 }
 
 function create(req){
     req['id'] = Math.floor(Date.now() / 100000000)
     req.private = !!req.private
-    users.push(req)
+    posts.push(req)
+}
+
+function deleteSkill(req){
+    const id = parseInt(req.params.id)
+    const data = posts.findIndex((x) => x.id === id)
+    posts.splice(data, 1)
 }

@@ -4,7 +4,8 @@ module.exports = {
     index,
     show,
     new: newEntry,
-    create
+    create,
+    delete: deleteSkill
 }
 
 function index(req, res){
@@ -24,6 +25,10 @@ function newEntry(req, res){
 
 function create(req, res){
     SkillsDB.create(req.body)
-    let data = SkillsDB.getAll()
-    res.render('skills/index', {data})
+    res.redirect('/skills')
+}
+
+function deleteSkill(req, res){
+    SkillsDB.delete(req)
+    res.redirect('/skills')
 }
