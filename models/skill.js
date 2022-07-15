@@ -11,7 +11,8 @@ const posts = [
 module.exports = {
     getAll,
     create,
-    delete:deleteSkill
+    delete:deleteSkill,
+    update
 }
 
 function getAll(){
@@ -26,6 +27,15 @@ function create(req){
 
 function deleteSkill(req){
     const id = parseInt(req.params.id)
-    const data = posts.findIndex((x) => x.id === id)
-    posts.splice(data, 1)
+    const idx = posts.findIndex((x) => x.id === id)
+    posts.splice(idx, 1)
+}
+
+function update(id,info){
+    const idData = parseInt(id)
+    const idx = posts.findIndex((x) => x.id === idData)
+    info.private = !!info.private
+    posts[idx].skill = info.skill
+    posts[idx].bio = info.bio
+    posts[idx].private = info.private
 }

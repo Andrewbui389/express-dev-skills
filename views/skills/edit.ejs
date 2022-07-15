@@ -1,5 +1,21 @@
 <%- include('../partials/navbar')%>
-    <form action="/skills/:id">
-
-    </form>
+<div class="container">
+    <div class="row justify-content-center">
+        <form action="/skills/<%=data.id%>?_method=PUT" method="POST" class="col-5">
+            <label class="mt-2" for="skill">Skill</label>
+            <input type="text" class="form-control" value="<%=data.skill%>" name="skill">
+            <label class="mt-2" for="bio">Insight</label>
+            <textarea class="form-control" rows="3" name="bio"><%=data.bio%></textarea>
+            <div class="form-group mt-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="private" name="private" <%= data.private ? "checked" : ""%> >
+                  <label class="form-check-label" for="private">
+                    Private
+                  </label>
+                </div>
+            </div>
+            <input type="submit" value="Submit Changes" class="form-control btn btn-outline-success mt-3">
+        </form>
+    </div>
+</div>
 <%- include('../partials/footer')%>
